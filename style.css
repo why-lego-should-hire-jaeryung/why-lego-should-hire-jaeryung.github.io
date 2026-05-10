@@ -442,6 +442,14 @@ html {
     margin-right: 0.1em;
 }
 
+.hero-section .main-title img {
+    height: 1.4em;
+    width: auto;
+    vertical-align: -0.24em;
+    margin-right: -0.1em;
+}
+
+
 
 .large-text {
     font-size: clamp(1.5rem, 3vw, 2.5rem);
