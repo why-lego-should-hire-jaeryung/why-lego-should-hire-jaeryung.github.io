@@ -384,10 +384,11 @@ document.addEventListener('DOMContentLoaded', () => {
 const worksData = {
     1: {
         images: [
-            "src/wh/thumb-1.png",
-            "src/wh/thumb-2.png",
-            "src/wh/thumb-3.png",
-            "src/wh/thumb-4.png"
+            "src/syncworld/syncworld-1.jpg",
+            "src/syncworld/syncworld-2.jpg",
+            "src/syncworld/syncworld-3.jpg",
+            "src/syncworld/syncworld-4.jpg", 
+            "src/syncworld/syncworld-5.jpg",
         ]
     },
     2: {
@@ -451,20 +452,8 @@ function openModal(workId) {
         return;
     }
     
-    // 랜덤 시작 인덱스가 없으면 생성 (페이지 로드 시 한 번만)
-    if (randomStartIndices[workId] === undefined) {
-        randomStartIndices[workId] = Math.floor(Math.random() * work.images.length);
-    }
-    
-    const startIndex = randomStartIndices[workId];
-    
-    // 이미지 배열을 랜덤 시작점부터 순환하도록 재배열
-    const reorderedImages = [
-        ...work.images.slice(startIndex),
-        ...work.images.slice(0, startIndex)
-    ];
-    
-    currentWorkImages = reorderedImages;
+    // 이미지 순서를 고정 (1-2-3-4-5 순서)
+    currentWorkImages = work.images.slice();
     currentSlideIndex = 0;
     
     // 캐러셀 업데이트
@@ -778,15 +767,10 @@ function initializeWorkThumbnails() {
         const work = worksData[workId];
         if (!work) continue;
         
-        // 랜덤 인덱스 생성 및 저장
-        if (randomStartIndices[workId] === undefined) {
-            randomStartIndices[workId] = Math.floor(Math.random() * work.images.length);
-        }
-        
-        // 썸네일 이미지 업데이트
+        // 썸네일 이미지 업데이트 (항상 1번 이미지)
         const thumbElement = document.getElementById(`work-thumb-${workId}`);
         if (thumbElement) {
-            thumbElement.src = work.images[randomStartIndices[workId]];
+            thumbElement.src = work.images[0];
         }
     }
 }
