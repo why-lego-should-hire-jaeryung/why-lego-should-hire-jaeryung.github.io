@@ -1,0 +1,16 @@
+{
+  "name": "creativitysupport-github-io",
+  "version": "1.0.0",
+  "description": "Creativity Support website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx live-server --port=3000 --host=localhost",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": ["website", "github-pages"],
+  "author": "jaeryungchung",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
