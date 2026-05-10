@@ -403,11 +403,11 @@ const worksData = {
     },
     3: {
         images: [
-            "src/wh/obj-1.png",
-            "src/wh/obj-2.png",
-            "src/wh/obj-3.png",
-            "src/wh/obj-4.png",
-            "src/wh/obj-6.png"
+            "src/sxsw/sxsw-1.png",
+            "src/sxsw/sxsw-2.png",
+            "src/sxsw/sxsw-3.png",
+            "src/sxsw/sxsw-4.png",
+            "src/sxsw/sxsw-5.png"
         ]
     },
     4: {
