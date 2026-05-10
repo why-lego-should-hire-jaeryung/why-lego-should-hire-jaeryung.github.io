@@ -179,55 +179,40 @@ function ifLogoFadeEffect() {
     const heroSection = document.getElementById('hero');
     const aboutSection = document.getElementById('about');
     const gallerySection = document.getElementById('gallery');
-    const exhibitionSection = document.getElementById('exhibition');
-    const contactSection = document.getElementById('contact');
     const ifLogo = document.querySelector('.hero-if-logo');
     
-    if (!heroSection || !aboutSection || !gallerySection || !exhibitionSection || !contactSection || !ifLogo) return;
-    
+    if (!heroSection || !aboutSection || !gallerySection || !ifLogo) return;
+
     const scrollPosition = window.pageYOffset;
-    const heroHeight = heroSection.offsetHeight;
     const aboutTop = aboutSection.offsetTop;
-    const aboutHeight = aboutSection.offsetHeight;
-    const aboutBottom = aboutTop + aboutHeight;
     const galleryTop = gallerySection.offsetTop;
-    const exhibitionTop = exhibitionSection.offsetTop;
-    const exhibitionHeight = exhibitionSection.offsetHeight;
-    const contactTop = contactSection.offsetTop;
-    const contactHeight = contactSection.offsetHeight;
-    
-    // Hero 섹션에서는 완전히 보임
-    if (scrollPosition < heroHeight) {
-        ifLogo.style.opacity = '1.0';
-    }
-    // About 섹션 중간까지만 보임 (60% 지점까지)
-    else if (scrollPosition < aboutTop + aboutHeight * 0.1) {
-        ifLogo.style.opacity = '1.0';
-    }
-    // About 섹션 중후반에서 빠르게 사라짐 (60%~75%에서 빠른 fade out)
-    else if (scrollPosition < aboutTop + aboutHeight * 0.25) {
-        const fadeStart = aboutTop + aboutHeight * 0.6;
-        const fadeDistance = aboutHeight * 0.15;
-        const fadeProgress = (scrollPosition - fadeStart) / fadeDistance;
-        const opacity = 1.0 * (1 - fadeProgress);
-        ifLogo.style.opacity = Math.max(0, opacity).toString();
-    }
-    // Exhibition 섹션 마지막 15% 전까지: 숨김
-    else if (scrollPosition < exhibitionTop + exhibitionHeight * 0.85) {
+    const galleryHeight = gallerySection.offsetHeight;
+    const galleryBottom = galleryTop + galleryHeight/2;
+    const fadeInDistance = 140;
+    const fadeOutDistance = 20;
+
+    if (scrollPosition <= aboutTop - fadeInDistance || scrollPosition >= galleryBottom + fadeOutDistance) {
         ifLogo.style.opacity = '0';
+        ifLogo.style.pointerEvents = 'none';
+        return;
     }
-    // Exhibition 섹션 마지막 15%에서 빠르게 fade in (앞부분 fade out과 동일한 속도)
-    else if (scrollPosition < exhibitionTop + exhibitionHeight) {
-        const fadeStart = exhibitionTop + exhibitionHeight * 0.5;
-        const fadeDistance = exhibitionHeight * 0.5;
-        const fadeProgress = (scrollPosition - fadeStart) / fadeDistance;
-        const opacity = 1.0 * fadeProgress;
-        ifLogo.style.opacity = Math.max(0, opacity).toString();
+
+    if (scrollPosition < aboutTop) {
+        const progress = 1 - (aboutTop - scrollPosition) / fadeInDistance;
+        ifLogo.style.opacity = Math.max(0, Math.min(1, progress)).toString();
+        ifLogo.style.pointerEvents = progress > 0.05 ? 'auto' : 'none';
+        return;
     }
-    // Contact 섹션 내부: 완전히 보임
-    else {
-        ifLogo.style.opacity = '1.0';
+
+    if (scrollPosition > galleryBottom) {
+        const progress = 1 - (scrollPosition - galleryBottom) / fadeOutDistance;
+        ifLogo.style.opacity = Math.max(0, Math.min(1, progress)).toString();
+        ifLogo.style.pointerEvents = progress > 0.05 ? 'auto' : 'none';
+        return;
     }
+
+    ifLogo.style.opacity = '1.0';
+    ifLogo.style.pointerEvents = 'auto';
 }
 
 /* ============================================
@@ -375,6 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // IF Logo Fade Effect
     window.addEventListener('scroll', ifLogoFadeEffect);
+    window.addEventListener('resize', ifLogoFadeEffect);
     ifLogoFadeEffect(); // Initial check
     
     // Hero Overlay Scroll Control

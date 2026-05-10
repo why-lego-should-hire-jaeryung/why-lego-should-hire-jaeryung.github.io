@@ -372,6 +372,8 @@ html {
     justify-content: center;
     align-items: center;
     transition: opacity 0.3s ease-out;  /* 부드러운 fade 효과 */
+    opacity: 0;
+    pointer-events: none;
 }
 
 .hero-if-logo a {
@@ -454,6 +456,24 @@ html {
     color: var(--text-secondary);
     line-height: 1.6;
     margin-top: 2rem;
+}
+
+.gallery-link {
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+    text-align: left;
+}
+
+.gallery-link a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s ease;
+}
+
+.gallery-link a:hover {
+    color: var(--text);
 }
 
 .diagram-container {
@@ -539,6 +559,17 @@ html {
     display: block;
     user-select: none;
     pointer-events: none;
+}
+
+.gallery-item-video {
+    background: #0d0d0d;
+}
+
+.gallery-item-video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
 }
 
 /* Works Section */
