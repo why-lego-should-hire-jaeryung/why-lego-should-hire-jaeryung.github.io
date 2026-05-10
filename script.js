@@ -412,7 +412,7 @@ const worksData = {
     },
     4: {
         images: [
-            "src/har/har-1.jpg",
+            "src/har/har-1.jpeg",
             "src/har/har-2.png",
         ]
     },
