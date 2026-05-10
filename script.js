@@ -393,14 +393,12 @@ const worksData = {
     },
     2: {
         images: [
-            "src/wh/story-1.png",
-            "src/wh/story-2.png",
-            "src/wh/story-3.png",
-            "src/wh/story-4.png",
-            "src/wh/story-5.png",
-            "src/wh/story-6.png",
-            "src/wh/story-7.png",
-            "src/wh/story-8.png"
+            "src/promptchef/pc-1.png",
+            "src/promptchef/pc-2.png",
+            "src/promptchef/pc-3.png",
+            "src/promptchef/pc-4.png",
+            "src/promptchef/pc-5.png",
+            "src/promptchef/pc-6.png"
         ]
     },
     3: {

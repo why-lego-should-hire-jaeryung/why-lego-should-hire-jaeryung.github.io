@@ -660,6 +660,23 @@ html {
     border-radius: 16px;
 }
 
+
+/* 링크 기본 스타일: 볼드, 화이트, 밑줄 */
+.work-content a {
+    color: #e7e9d8;
+    font-weight: regular;
+    text-decoration: underline;
+    transition: opacity 0.2s ease; /* 부드러운 효과를 위한 추가 */
+    font-size: 0.9rem;
+}
+
+/* 마우스를 올렸을 때 스타일 (선택 사항) */
+.work-content a:hover {
+    text-decoration: none; /* 밑줄을 없애거나 */
+    opacity: 0.5;          /* 약간 투명하게 해서 클릭 가능한 느낌 부여 */
+}
+
+
 .placeholder-image {
     width: 100%;
     height: 100%;
