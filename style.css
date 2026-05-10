@@ -112,6 +112,19 @@ html {
     background: #0a0a0a;
 }
 
+.keyword-list {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+}
+
+.keyword-list strong {
+    font-weight: 700;
+    font-style: italic;
+    color: var(--text);
+}
+
 .lego-word {
     display: flex;
     justify-content: center;
@@ -418,6 +431,15 @@ html {
     margin-bottom: 3rem;
     letter-spacing: -0.03em;
 }
+
+
+.about-section .description-text img {
+    height: 1.8em;
+    width: auto;
+    vertical-align: -0.54em;
+    margin-right: 0.1em;
+}
+
 
 .large-text {
     font-size: clamp(1.5rem, 3vw, 2.5rem);
