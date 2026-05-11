@@ -726,6 +726,58 @@ html {
 /* Showcase Section */
 .showcase-section {
     background: #0a0a0a;
+    padding-bottom: 19rem;
+}
+
+.who-section {
+    background: #0a0a0a;
+}
+
+.who-section h2 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    letter-spacing: -0.03em;
+    text-align: center;
+}
+
+.who-card {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 2.75rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(20, 20, 20, 0.9));
+    border: 1px solid rgba(245, 245, 247, 0.08);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    text-align: left;
+}
+
+.who-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.2rem;
+}
+
+.who-list li {
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    position: relative;
+    padding-left: 1.6rem;
+}
+
+.who-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(229, 130, 69, 0.5);
 }
 
 .dream-section {
