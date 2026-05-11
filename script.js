@@ -369,7 +369,20 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Horizontal Gallery Scroll with Mouse Drag
     setupHorizontalGalleryScroll();
+
+    // Dream collage click interaction
+    setupDreamCollage();
 });
+
+function setupDreamCollage() {
+    const collage = document.querySelector('.dream-collage');
+
+    if (!collage) return;
+
+    collage.addEventListener('click', () => {
+        collage.classList.toggle('dream-collage--spread');
+    });
+}
 
 /* ============================================
    Modal 기능

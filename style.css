@@ -839,7 +839,8 @@ html {
     height: min(560px, 60vh);
     margin: 3rem auto 0;
     z-index: 1;
-    pointer-events: none;
+    pointer-events: auto;
+    cursor: pointer;
 }
 
 .dream-image {
@@ -852,6 +853,15 @@ html {
     border-radius: 16px;
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
     opacity: 0.95;
+    z-index: var(--z, 1);
+    pointer-events: none;
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.9s ease;
+}
+
+.dream-collage--spread .dream-image {
+    transform: translate(calc(-50% + var(--sx, 0px)), calc(-50% + var(--sy, 0px))) rotate(var(--srot, 0deg));
 }
 
 .showcase-section h2 {
