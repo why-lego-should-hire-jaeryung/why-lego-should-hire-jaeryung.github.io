@@ -241,7 +241,7 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // Hover 효과: 클릭 가능한 요소에 마우스 올릴 때 커서 확대
-const clickableElements = document.querySelectorAll('a, button, .work-item, .placeholder-image');
+const clickableElements = document.querySelectorAll('a, button, .work-item, .placeholder-image, .dream-collage');
 clickableElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
         cursor.classList.add('hover');
